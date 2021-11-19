@@ -1,0 +1,2 @@
+# learndjango
+django learning
