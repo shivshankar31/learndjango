@@ -2,6 +2,7 @@ from django.http.response import HttpResponseNotFound
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
+from django.template.loader import render_to_string 
 
 # 25 adding more dynamic view logic 
 
@@ -59,7 +60,7 @@ def monthly_challenge_as_int(request, month):
 def monthly_challenges(request, month):
     try:
         challenge_text = monthly_challenges_text[month]
-        html_response = f'<h1>{challenge_text}</h1>' #convert into html
+        html_response = render_to_string('challenges/challenge.html') # this is to call the html file after this we need to register the app with django setting.py file 
     except:
         return HttpResponseNotFound('<h1>Type month propery!<h2>') #convert into html
     # return HttpResponseNotFound('This month is not included')

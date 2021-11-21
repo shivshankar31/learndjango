@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'challenges', # here by adding the app django knows that it should look for html file inside app templetes folder 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,8 +55,11 @@ ROOT_URLCONF = 'leandjangoenv.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [
+            # BASE_DIR /'challenges' /'templates' # we can add directories manually to show the path, but best way is to add under 'installed_app' location
+
+        ],
+        'APP_DIRS': True, #this line address to search the templates folder inside the app by listing inside 'installed_app' location
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
