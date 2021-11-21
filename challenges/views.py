@@ -1,6 +1,7 @@
 from django.http.response import HttpResponseNotFound
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.urls import reverse
 
 # 25 adding more dynamic view logic 
 
@@ -22,12 +23,16 @@ monthly_challenges_text = {
     
 }
 
-# redirect int to month key value from dict 
+# reverse() funcion is used to remove hardcode urls to dynamic by specifing name for the path
+# incase of changeing path on main url it wont effect the app urls
+# in the main url name should be specified
+
 def monthly_challenge_as_int(request, month):
     if month <= 12:
         months = list(monthly_challenges_text.keys())
         redirecter_month = months[month - 1]
-        return HttpResponseRedirect('/challenges/' + redirecter_month)
+        dynamic_url = reverse('challanges_urlpath', args=[redirecter_month])
+        return HttpResponseRedirect(dynamic_url)
     else:
         return HttpResponseNotFound(' Invalid month, enter valid month')
 
