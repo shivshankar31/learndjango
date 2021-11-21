@@ -1,6 +1,6 @@
 from django.http.response import HttpResponseNotFound
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 
 # 25 adding more dynamic view logic 
 
@@ -22,10 +22,16 @@ monthly_challenges_text = {
     
 }
 
+# redirect int to month key value from dict 
 def monthly_challenge_as_int(request, month):
-    return HttpResponse(month)
+    if month <= 12:
+        months = list(monthly_challenges_text.keys())
+        redirecter_month = months[month - 1]
+        return HttpResponseRedirect('/challenges/' + redirecter_month)
+    else:
+        return HttpResponseNotFound(' Invalid month, enter valid month')
 
-# call created dict with below function and add try block to handle error
+# call created dict with below function and add try block to handle error 
     
 
 def monthly_challenges(request, month):
