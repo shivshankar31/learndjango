@@ -2,9 +2,11 @@ from django.http.response import HttpResponseNotFound
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 
-# Create your views here.
+# now with below function integers also handled 
 
-# handling dynamic views using if and return 
+def monthly_challenge_as_int(request, month):
+    return HttpResponse(month)
+
 
 def monthly_challenges(request, month):
     if month == 'january':
