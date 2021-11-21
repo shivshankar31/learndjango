@@ -23,6 +23,23 @@ monthly_challenges_text = {
     
 }
 
+# to create index page containing all month
+# creat a empty list and generate all the keys from dict 
+# with that using for loop generate list of path 
+
+def index(request):
+    list_item = ''
+    months = list(monthly_challenges_text.keys())
+
+    for month in months:
+        cap_month = month.capitalize()
+        month_path = reverse('challanges_urlpath', args=[month])
+        list_item += f'<li><a href="{month_path}">{cap_month}</a><li>'
+
+    respose_data = f'<ul>{list_item}</ul>'
+    return HttpResponse(respose_data)
+
+
 # reverse() funcion is used to remove hardcode urls to dynamic by specifing name for the path
 # incase of changeing path on main url it wont effect the app urls
 # in the app url name should be specified for that path()
@@ -42,8 +59,9 @@ def monthly_challenge_as_int(request, month):
 def monthly_challenges(request, month):
     try:
         challenge_text = monthly_challenges_text[month]
+        html_response = f'<h1>{challenge_text}</h1>' #convert into html
     except:
-        return HttpResponseNotFound('Type month propery!')
+        return HttpResponseNotFound('<h1>Type month propery!<h2>') #convert into html
     # return HttpResponseNotFound('This month is not included')
     
-    return HttpResponse(challenge_text)
+    return HttpResponse(html_response)
