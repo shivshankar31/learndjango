@@ -25,7 +25,7 @@ monthly_challenges_text = {
 
 # reverse() funcion is used to remove hardcode urls to dynamic by specifing name for the path
 # incase of changeing path on main url it wont effect the app urls
-# in the main url name should be specified
+# in the app url name should be specified for that path()
 
 def monthly_challenge_as_int(request, month):
     if month <= 12:

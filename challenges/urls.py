@@ -5,5 +5,5 @@ from .import views
 
 urlpatterns = [
     path('<int:month>', views.monthly_challenge_as_int),
-    path('<str:month>', views.monthly_challenges)
+    path('<str:month>', views.monthly_challenges,  name='challanges_urlpath') #name is used to specify in reverse()
 ]
