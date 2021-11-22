@@ -1,6 +1,6 @@
 from django.http.response import HttpResponseNotFound
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.template.loader import render_to_string 
 
@@ -72,7 +72,4 @@ def monthly_challenges(request, month):
         #why we create challenges folder inside templetes, it is to avoide file duplications, its a best pratice to follow
         # html_response = render_to_string('challenges/challenge.html') # this is to call the html file after this we need to register the app with django setting.py file 
     except:
-        return HttpResponseNotFound('<h1>Type month propery!<h2>') #convert into html
-    # return HttpResponseNotFound('This month is not included')
-    
-    # return HttpResponse(html_response) # this is not required if 'render' module is used 
+        raise Http404() # this will look for 404 html file so create the file in globel templates folder
