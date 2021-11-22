@@ -60,9 +60,14 @@ def monthly_challenge_as_int(request, month):
 def monthly_challenges(request, month):
     try:
         challenge_text = monthly_challenges_text[month]
-        html_response = render_to_string('challenges/challenge.html') # this is to call the html file after this we need to register the app with django setting.py file 
+
+        # 'render' is a second option insted of 'render_to_string', render is imported from django.shortcutes
+        return render(request, 'challenges/challenge.html')
+
+        #why we create challenges folder inside templetes, it is to avoide file duplications, its a best pratice to follow
+        # html_response = render_to_string('challenges/challenge.html') # this is to call the html file after this we need to register the app with django setting.py file 
     except:
         return HttpResponseNotFound('<h1>Type month propery!<h2>') #convert into html
     # return HttpResponseNotFound('This month is not included')
     
-    return HttpResponse(html_response)
+    # return HttpResponse(html_response) # this is not required if 'render' module is used 
