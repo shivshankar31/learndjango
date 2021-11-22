@@ -29,16 +29,19 @@ monthly_challenges_text = {
 # with that using for loop generate list of path 
 
 def index(request):
-    list_item = ''
+    # list_item = ''
     months = list(monthly_challenges_text.keys())
+    # using render function to call the intex.html file
+    return render(request, 'challenges/index.html', {'month': months}) 
+    # as we are using seperate index.html file we donot need to generate here so remove below codes
 
-    for month in months:
-        cap_month = month.capitalize()
-        month_path = reverse('challanges_urlpath', args=[month])
-        list_item += f'<li><a href="{month_path}">{cap_month}</a><li>'
+    # for month in months:
+    #     cap_month = month.capitalize()
+    #     month_path = reverse('challanges_urlpath', args=[month])
+    #     list_item += f'<li><a href="{month_path}">{cap_month}</a><li>'
 
-    respose_data = f'<ul>{list_item}</ul>'
-    return HttpResponse(respose_data)
+    # respose_data = f'<ul>{list_item}</ul>'
+    # return HttpResponse(respose_data)
 
 
 # reverse() funcion is used to remove hardcode urls to dynamic by specifing name for the path
