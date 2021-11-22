@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ month }} </title>
+    <title>{{ month | title }} </title>
 </head>
 <body>
-    <h1>{{ month }} Month Challenge</h1>
-    <h2>{{ text }}</h2> <! django has django templet lang to make html to dynamic, with this {{ name }} django will hardcode the text inside html !>
+    <! we user | title to capitilize first letter ref : https://docs.djangoproject.com/en/3.2/ref/templates/builtins/ !>
+    <h1>{{ month | title }} Month Challenge</h1>
+    <h2>{{ text | title }}</h2> <! django has django templet lang to make html to dynamic, with this {{ name }} django will hardcode the text inside html !>
 </body>
 </html>
