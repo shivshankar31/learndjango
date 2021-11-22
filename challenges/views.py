@@ -60,9 +60,10 @@ def monthly_challenge_as_int(request, month):
 def monthly_challenges(request, month):
     try:
         challenge_text = monthly_challenges_text[month]
-
+        cap = month.capitalize()
         # 'render' is a second option insted of 'render_to_string', render is imported from django.shortcutes
-        return render(request, 'challenges/challenge.html')
+        # to convert dynamic html page we use third arg with the dict as below, this 'text' name will be added to the html page with django syntax
+        return render(request, 'challenges/challenge.html', {'text': challenge_text, 'month': cap}) 
 
         #why we create challenges folder inside templetes, it is to avoide file duplications, its a best pratice to follow
         # html_response = render_to_string('challenges/challenge.html') # this is to call the html file after this we need to register the app with django setting.py file 
