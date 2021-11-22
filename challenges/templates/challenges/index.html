@@ -1,23 +1,16 @@
-<! index html is created to generate month index in the html page itself insted of creating in views.py!>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ months | title }} Index </title>
-</head>
-<body>
+{% extends 'base.html' %} <!this is required to inform django to use the base html file!>
+
+<!below contend is injected to the base templete and it uses the common structure !>
+{% block page_title %}
+{{ months | title }} Index </title>
+{% endblock page_title %}
+
+
+{% block content  %}
     <ul> 
-        {% for months in month %} <!django templets are used here !>
-        <! There are two ways to inject the href link
-        1. href="/challenges/{{ months }}  with this challenges should be hardcoded, so incase of any changes on the path, link breaks.
-        2. using url tag "url 'some-url-name' v1 v2" is used to create dynamic link
-        !>
+        {% for months in month %} 
             <li><a href="{% url 'challanges_urlpath' months %}">{{ months | title}}</a><li>
         {% endfor %}
          
     </ul>
- 
-</body>
-</html>
+ {% endblock content  %}

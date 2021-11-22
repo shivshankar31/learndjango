@@ -57,7 +57,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             # BASE_DIR /'challenges' /'templates' # we can add directories manually to show the path, but best way is to add under 'installed_app' location
-
+            BASE_DIR /'templates' # here we register the path to inform django
         ],
         'APP_DIRS': True, #this line address to search the templates folder inside the app by listing inside 'installed_app' location
         'OPTIONS': {

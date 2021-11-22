@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ month | title }} </title>
-</head>
-<body>
-    <! we user | title to capitilize first letter ref : https://docs.djangoproject.com/en/3.2/ref/templates/builtins/ !>
+{% extends 'base.html' %}
+
+{% block page_title %}
+{{ month | title }} 
+{% endblock page_title %}
+
+{% block content %}
     <h1>{{ month | title }} Month Challenge</h1>
-    {% if text is not None %}
-        <h2>{{ text | title }}</h2> <! django has django templet lang to make html to dynamic, with this {{ name }} django will hardcode the text inside html !>
+    {% if text is not None %} 
+        <h2>{{ text | title }}</h2>
     {% else %}
         <p> There is no challenge for this month </p>
     {% endif %}
-
-</body>
-</html>
+{% endblock content %}
