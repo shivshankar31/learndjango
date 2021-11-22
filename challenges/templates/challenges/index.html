@@ -1,9 +1,16 @@
 {% extends 'base.html' %} <!this is required to inform django to use the base html file!>
+{% load static %}
 
 <!below contend is injected to the base templete and it uses the common structure !>
 {% block page_title %}
 {{ months_name | title }} Index </title>
 {% endblock page_title %}
+
+<!we need to load the static file on the top first, now add the css block and add the link, make sure the href path is correct!>
+<! after adding restart the server to see changes. also on browser inspect under network you can see the css file loaded correctly!>
+{% block css %}
+    <link rel="stylesheet" href="{% static 'challenges/styles.css' %}"> 
+{% endblock css %}
 
 
 {% block content  %}
