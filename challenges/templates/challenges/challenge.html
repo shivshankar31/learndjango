@@ -9,6 +9,11 @@
 <body>
     <! we user | title to capitilize first letter ref : https://docs.djangoproject.com/en/3.2/ref/templates/builtins/ !>
     <h1>{{ month | title }} Month Challenge</h1>
-    <h2>{{ text | title }}</h2> <! django has django templet lang to make html to dynamic, with this {{ name }} django will hardcode the text inside html !>
+    {% if text is not None %}
+        <h2>{{ text | title }}</h2> <! django has django templet lang to make html to dynamic, with this {{ name }} django will hardcode the text inside html !>
+    {% else %}
+        <p> There is no challenge for this month </p>
+    {% endif %}
+
 </body>
 </html>

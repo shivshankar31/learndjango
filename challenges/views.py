@@ -20,7 +20,7 @@ monthly_challenges_text = {
     'september' : 'This is september, Run with the phase, do not stop when you fail!',
     'october' : 'This in october, Always dream your dream!',
     'november' : 'This is november, Work smart and earn better!',
-    'december' : 'This is december, Run with the phase, do not stop when you fail!',
+    'december' : None
     
 }
 
