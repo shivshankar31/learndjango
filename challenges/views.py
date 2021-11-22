@@ -32,7 +32,7 @@ def index(request):
     # list_item = ''
     months = list(monthly_challenges_text.keys())
     # using render function to call the intex.html file
-    return render(request, 'challenges/index.html', {'month': months}) 
+    return render(request, 'challenges/index.html', {'months': months}) 
     # as we are using seperate index.html file we donot need to generate here so remove below codes
 
     # for month in months:

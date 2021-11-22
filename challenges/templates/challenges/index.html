@@ -2,15 +2,16 @@
 
 <!below contend is injected to the base templete and it uses the common structure !>
 {% block page_title %}
-{{ months | title }} Index </title>
+{{ months_name | title }} Index </title>
 {% endblock page_title %}
 
 
 {% block content  %}
+    {% include 'challenges/includes/header.html' %}   <!we include navigation to index path !>
     <ul> 
-        {% for months in month %} 
-            <li><a href="{% url 'challanges_urlpath' months %}">{{ months | title}}</a><li>
+        {% for months_name in months %} 
+            <li><a href="{% url 'challanges_urlpath' months_name %}">{{ months_name | title}}</a><li>
         {% endfor %}
          
     </ul>
- {% endblock content  %}
+{% endblock content  %}

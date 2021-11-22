@@ -5,6 +5,7 @@
 {% endblock page_title %}
 
 {% block content %}
+    {% include 'challenges/includes/header.html' %} <!we include navigation to index path !>
     <h1>{{ month | title }} Month Challenge</h1>
     {% if text is not None %} 
         <h2>{{ text | title }}</h2>
