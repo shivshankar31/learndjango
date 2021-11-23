@@ -10,6 +10,7 @@
 <! after adding restart the server to see changes. also on browser inspect under network you can see the css file loaded correctly!>
 {% block css %}
     <link rel="stylesheet" href="{% static 'challenges/styles.css' %}"> 
+    <link rel="stylesheet" href="{% static 'challenges/includes/header.css' %}"> 
 {% endblock css %}
 
 
@@ -17,8 +18,7 @@
     {% include 'challenges/includes/header.html' %}   <!we include navigation to index path !>
     <ul> 
         {% for months_name in months %} 
-            <li><a href="{% url 'challanges_urlpath' months_name %}">{{ months_name | title}}</a><li>
+            <li><a href="{% url 'challanges_urlpath' months_name %}">{{ months_name | title}}</a></li>
         {% endfor %}
-         
     </ul>
 {% endblock content  %}

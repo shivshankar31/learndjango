@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block page_title %}
 {{ month | title }} 
 {% endblock page_title %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'challenges/text.css' %}"> 
+    <link rel="stylesheet" href="{% static 'challenges/includes/header.css' %}"> 
+{% endblock css %}
 
 {% block content %}
     {% include 'challenges/includes/header.html' %} <!we include navigation to index path !>
