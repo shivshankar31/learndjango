@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {% block page_title %}{% endblock page_title  %}</title> <!this is title block!>
-    {% block css %}{% endblock css %}
+    {% block css %}{% endblock css %} <!here we added css block!>
+    <link rel="stylesheet" href="{% static "base.css" %}"> <! add css file using default css link also load the static on the top!>
+
 </head>
 <body>
     {% block content %} <!this is content block!> 

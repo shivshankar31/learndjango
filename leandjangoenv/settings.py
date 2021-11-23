@@ -123,6 +123,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# by default django will look for static folder inside the app, but if a globel static folder is created then
+# it should be add here to staticfiles dirs
+STATICFILES_DIRS = [
+
+    BASE_DIR / 'static',
+] 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

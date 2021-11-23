@@ -1,0 +1,15 @@
+
+/* import font from google fonts and set the font as defalt font all html for the project*/
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Ubuntu:ital,wght@0,400;1,500&display=swap');
+
+html{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body{
+    margin: 0;
+    
+    
+}
